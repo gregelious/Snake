@@ -58,7 +58,7 @@ public class SnakeMove : MonoBehaviour
     //function for collision
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Food")
+        if (other.tag == "Food") // the red
         {
             Grow();
         }
