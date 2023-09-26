@@ -54,4 +54,13 @@ public class SnakeMove : MonoBehaviour
         segment.position = segments[segments.Count - 1].position; // position it to the back of snake
         segments.Add(segment); // add it to the list
     }
+
+    //function for collision
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Food")
+        {
+            Grow();
+        }
+    }
 }

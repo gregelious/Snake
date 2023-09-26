@@ -429,6 +429,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6398793045907198665, guid: 5c2d5fa2074bb5a4eba4f32d877e7cd2, type: 3}
+      propertyPath: bodyPrefab
+      value: 
+      objectReference: {fileID: 3655353160556192771, guid: 5ec3fcead2eea884f8285892fdfa559d, type: 3}
     - target: {fileID: 6398793045907198668, guid: 5c2d5fa2074bb5a4eba4f32d877e7cd2, type: 3}
       propertyPath: m_Name
       value: Snake
