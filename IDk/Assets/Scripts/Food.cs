@@ -10,7 +10,7 @@ public class Food : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        RandomPos(); // randomize position of food 
     }
 
     // Update is called once per frame
@@ -28,5 +28,14 @@ public class Food : MonoBehaviour
         float y = Random.Range(bounds.min.y, bounds.max.y); // random y in limit
 
         transform.position = new Vector2(Mathf.Round(x), Mathf.Round(y)); // round values and change position
+    }
+
+    //function for collision
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player") // the red
+        {
+            RandomPos();
+        }
     }
 }
