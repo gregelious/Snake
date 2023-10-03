@@ -71,6 +71,7 @@ public class SnakeMove : MonoBehaviour
         else if (other.tag == "Obstacle")
         {
             Debug.Log("Hit");
+            Destroy(segments);
             segments = new List<Transform>(); // create new list
             segments.Add(transform);
         }
