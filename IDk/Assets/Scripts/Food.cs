@@ -37,5 +37,6 @@ public class Food : MonoBehaviour
         {
             RandomPos();
         }
+        
     }
 }

@@ -68,5 +68,11 @@ public class SnakeMove : MonoBehaviour
         {
             Grow();
         }
+        else if (other.tag == "Obstacle")
+        {
+            Debug.Log("Hit");
+            segments = new List<Transform>(); // create new list
+            segments.Add(transform);
+        }
     }
 }
