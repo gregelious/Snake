@@ -85,15 +85,16 @@ public class SnakeMove : MonoBehaviour
     //function for collision
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Food") // the red
+        if (other.tag == "Food") //if snake touches food
         {
-            Grow();
-            Time.fixedDeltaTime -= 0.001f;
+            Grow(); // adds body part to snake
+            Time.fixedDeltaTime -= 0.001f; //gets faster
         }
-        else if (other.tag == "Obstacle")
+        else if (other.tag == "Obstacle") //if it touches obstacle
         {
-            Debug.Log("Hit");
-            SceneManager.LoadScene("SampleScene");
+            Debug.Log("Hit"); // shows up in console
+            SceneManager.LoadScene("EndScene"); //change to end scene
+            SceneManager.LoadScene("SampleScene"); // go back to start screen
         }
     }
 }
