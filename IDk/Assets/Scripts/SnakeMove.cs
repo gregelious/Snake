@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnakeMove : MonoBehaviour
 {
 
     private Vector2 direction;
+    public bool goingUp;
+    public bool goingDown;
+    public bool goingLeft;
+    public bool goingRight;
 
     List<Transform> segments; // stores all parts of the body of the snake
     public Transform bodyPrefab; // variable to store the body
@@ -20,21 +25,37 @@ public class SnakeMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && goingDown != true)
         {
             direction = Vector2.up;
+            goingUp = true;
+            goingDown = false;
+            goingLeft = false;
+            goingRight = false;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) && goingUp != true)
         {
             direction = Vector2.down;
+            goingUp = false;
+            goingDown = true;
+            goingLeft = false;
+            goingRight = false;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && goingRight != true)
         {
             direction = Vector2.left;
+            goingUp = false;
+            goingDown = false;
+            goingLeft = true;
+            goingRight = false;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) && goingLeft != true)
         {
             direction = Vector2.right;
+            goingUp = false;
+            goingDown = false;
+            goingLeft = false;
+            goingRight = true;
         }
     }
 
@@ -67,13 +88,12 @@ public class SnakeMove : MonoBehaviour
         if (other.tag == "Food") // the red
         {
             Grow();
+            Time.fixedDeltaTime -= 0.001f;
         }
         else if (other.tag == "Obstacle")
         {
             Debug.Log("Hit");
-            Destroy(segments);
-            segments = new List<Transform>(); // create new list
-            segments.Add(transform);
+            SceneManager.LoadScene("SampleScene");
         }
     }
 }
