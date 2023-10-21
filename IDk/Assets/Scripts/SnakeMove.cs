@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class SnakeMove : MonoBehaviour
 {
 
-    private Vector2 direction;
-    public bool goingUp;
-    public bool goingDown;
-    public bool goingLeft;
-    public bool goingRight;
+    private Vector2 direction; // snake direction
+    public bool goingUp; // true = goes up
+    public bool goingDown; // true = goes down
+    public bool goingLeft; // true = goes left
+    public bool goingRight; // true = goes right
 
     List<Transform> segments; // stores all parts of the body of the snake
     public Transform bodyPrefab; // variable to store the body
@@ -25,33 +25,33 @@ public class SnakeMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && goingDown != true)
+        if (Input.GetKeyDown(KeyCode.W) && goingDown != true) //if w is pressed and its not going down
         {
-            direction = Vector2.up;
+            direction = Vector2.up; // goes up
             goingUp = true;
             goingDown = false;
             goingLeft = false;
             goingRight = false;
         }
-        else if (Input.GetKeyDown(KeyCode.S) && goingUp != true)
+        else if (Input.GetKeyDown(KeyCode.S) && goingUp != true) //if s is pressed and its not going up
         {
-            direction = Vector2.down;
+            direction = Vector2.down; //goes down
             goingUp = false;
             goingDown = true;
             goingLeft = false;
             goingRight = false;
         }
-        else if (Input.GetKeyDown(KeyCode.A) && goingRight != true)
+        else if (Input.GetKeyDown(KeyCode.A) && goingRight != true) //if a is pressed and its not going right
         {
-            direction = Vector2.left;
+            direction = Vector2.left; //goes left
             goingUp = false;
             goingDown = false;
             goingLeft = true;
             goingRight = false;
         }
-        else if (Input.GetKeyDown(KeyCode.D) && goingLeft != true)
+        else if (Input.GetKeyDown(KeyCode.D) && goingLeft != true) //if d is pressed and its not going left
         {
-            direction = Vector2.right;
+            direction = Vector2.right; //goes right
             goingUp = false;
             goingDown = false;
             goingLeft = false;
